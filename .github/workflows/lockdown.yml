@@ -1,0 +1,22 @@
+name: Repo lockdown
+
+on:
+  pull_request_target:
+    types: opened
+
+permissions:
+  pull-requests: write
+
+jobs:
+  lockdown:
+    name: Repo lockdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo lockdown
+        uses: dessant/repo-lockdown@v4
+        with:
+          exclude-pr-labels: 'pinned'
+          process-only: 'prs'
+          pr-comment: >
+            This repository does not accept pull requests,
+            see the README for details.

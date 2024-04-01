@@ -1,0 +1,46 @@
+{
+    "name": "yourivw/sailor-services",
+    "description": "Personal services for Sailor.",
+    "keywords": [
+        "laravel",
+        "sailor",
+        "services"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Youri van Weegberg",
+            "email": "youri@yourivw.nl"
+        }
+    ],
+    "require": {
+        "yourivw/sailor": "^1.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.21|^9.0",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yourivw\\SailorServices\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yourivw\\SailorServices\\SailorServicesServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

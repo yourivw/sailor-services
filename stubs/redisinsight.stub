@@ -1,0 +1,9 @@
+redisinsight:
+    image: 'redis/redisinsight:latest'
+    ports: 
+        - '${FORWARD_REDISINSIGHT_PORT:-5540}:5540'
+    volumes:
+        - './.docker/redisinsight/redisinsight.db:/data/redisinsight.db'
+        - 'sailor-redisinsight:/data'
+    networks:
+        - sail

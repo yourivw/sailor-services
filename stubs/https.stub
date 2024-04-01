@@ -1,0 +1,14 @@
+https:
+    image: 'nginx:latest'
+    ports:
+        - '${FORWARD_SSL_PORT:-443}:443'
+    environment:
+        SSL_SERVICES: '${APP_SERVICE:-laravel.test}:80:443;'
+        APP_SERVICE: ${APP_SERVICE:-laravel.test}
+    volumes:
+        - './.docker/https/CA:/etc/nginx/CA'
+        - './vendor/yourivw/sailor-services/https/templates:/etc/nginx/stubs'
+        - './vendor/yourivw/sailor-services/https/generate-templates.sh:/docker-entrypoint.d/01-generate-templates.sh'
+        - './vendor/yourivw/sailor-services/https/generate-cert.sh:/docker-entrypoint.d/99-generate-cert.sh'
+    networks:
+        - sail
